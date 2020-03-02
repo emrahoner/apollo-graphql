@@ -9,6 +9,6 @@ const books = [
     }
 ]
 
-export {
+module.exports = {
     books
 }

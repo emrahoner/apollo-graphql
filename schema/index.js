@@ -11,4 +11,4 @@ const schema = gql`
     }
 `
 
-export default schema
+module.exports = schema
