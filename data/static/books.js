@@ -1,11 +1,31 @@
 const books = [
     {
         title: 'Kuvayi Milliye',
-        author: 'Nazim Hikmet'
+        author: 'Nazım Hikmet'
+    },
+    {
+        title: 'Sesini Kaybeden Şehir',
+        author: 'Nazım Hikmet'
+    },
+    {
+        title: 'Kan Konuşmaz',
+        author: 'Nazım Hikmet'
+    },
+    {
+        title: 'Yaşamak Hakkı',
+        author: 'Nazım Hikmet'
     },
     {
         title: 'Ince Memed',
-        author: 'Yasar Kemal'
+        author: 'Yaşar Kemal'
+    },
+    {
+        title: 'Ölmez Otu',
+        author: 'Yaşar Kemal'
+    },
+    {
+        title: 'Yer Demir Gök Bakır',
+        author: 'Yaşar Kemal'
     }
 ]
 

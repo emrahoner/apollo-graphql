@@ -20,7 +20,8 @@ const schema = gql`
     }
 
     type Query {
-        books: [Book],
+        getBooks: [Book],
+        getAuthors: [Author]
         scalarTypes: [ScalarTypes]
     }
 `
