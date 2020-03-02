@@ -24,6 +24,10 @@ const schema = gql`
         getAuthors: [Author]
         scalarTypes: [ScalarTypes]
     }
+
+    type Mutation {
+        addBook(title: String, author: String): Book
+    }
 `
 
 module.exports = schema
