@@ -1,13 +1,4 @@
-const books = [
-    {
-        title: 'Kuvayi Milliye',
-        author: 'Nazim Hikmet'
-    },
-    {
-        title: 'Ince Memed',
-        author: 'Yasar Kemal'
-    }
-]
+const books = require('./books')
 
 module.exports = {
     books
