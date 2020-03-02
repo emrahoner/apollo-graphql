@@ -3,7 +3,12 @@ const { gql } = require('apollo-server')
 const schema = gql`
     type Book {
         title: String,
-        author: String
+        author: Author
+    }
+
+    type Author {
+        name: String,
+        books: [Book]
     }
 
     type Query {
