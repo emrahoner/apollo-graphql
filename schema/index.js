@@ -1,6 +1,14 @@
 const { gql } = require('apollo-server')
 
 const schema = gql`
+    type ScalarTypes {
+        idType: ID,
+        intType: Int,
+        floatType: Float,
+        stringType: String,
+        booleanType: Boolean
+    }
+    
     type Book {
         title: String,
         author: Author
@@ -12,7 +20,8 @@ const schema = gql`
     }
 
     type Query {
-        books: [Book]
+        books: [Book],
+        scalarTypes: [ScalarTypes]
     }
 `
 
