@@ -19,6 +19,13 @@ const schema = gql`
         books: [Book]
     }
 
+    input AddBookParams {
+        "Title of the book"
+        title: String,
+        "Author of the book"
+        author: String
+    }
+
     type Query {
         getBooks: [Book],
         getAuthors: [Author]
@@ -26,7 +33,8 @@ const schema = gql`
     }
 
     type Mutation {
-        addBook(title: String, author: String): Book
+        addBook(title: String, author: String): Book,
+        addBookByObject(book: AddBookParams): Book
     }
 `
 

@@ -42,8 +42,27 @@ const addBook = (_, { title, author }) => {
     } 
 }
 
+const addBookByObject = (_, { book }) => {
+    const title = book.title
+    const author = book.author
+
+    data.books.push({
+        title: title,
+        author: author
+    })
+
+    return { 
+        title: title, 
+        author: {
+            name: author,
+            books: data.books.filter(x => x.author === author).map(x => x.title)
+        }
+    }
+}
+
 module.exports = {
     getBooks,
     getAuthors,
-    addBook
+    addBook,
+    addBookByObject
 }
