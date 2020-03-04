@@ -41,6 +41,7 @@ const schema = gql`
     }
 
     scalar JSON
+    scalar DateTimeScalar
 
     input JSONRequest {
         json: JSON
@@ -49,6 +50,14 @@ const schema = gql`
     type JSONResponse {
         oldJSON: JSON
         newJSON: JSON
+    }
+
+    type GetNowResponse {
+        now: DateTimeScalar
+    }
+
+    type DateTimeResponse {
+        date: DateTimeScalar
     }
 
     """
@@ -73,6 +82,7 @@ const schema = gql`
         getBooks: [Book],
         getAuthors: [Author]
         scalarTypes: [ScalarTypes]
+        getNow: GetNowResponse
     }
 
     type Mutation {
@@ -81,8 +91,9 @@ const schema = gql`
             "Book object that has title and author properties"
             book: AddBookParams
         ): Book,
-        updateAuthor(request: UpdateAuthorParams): UpdateAuthorResponse
-        updateJSON(request: JSONRequest): JSONResponse
+        updateAuthor(request: UpdateAuthorParams): UpdateAuthorResponse,
+        updateJSON(request: JSONRequest): JSONResponse,
+        addHoursToNow(hours: Int): DateTimeResponse
     }
 `
 
