@@ -20,7 +20,8 @@
   "homepage": "https://github.com/emrahoner/apollo-graphql#readme",
   "dependencies": {
     "apollo-server": "^2.10.1",
-    "graphql": "^14.6.0"
+    "graphql": "^14.6.0",
+    "graphql-type-json": "^0.3.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

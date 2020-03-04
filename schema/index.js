@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server')
+const GraphQLJSON = require('graphql-type-json')
 
 const schema = gql`
     interface MutationResponse {
@@ -39,6 +40,17 @@ const schema = gql`
         SHORT_STORIES
     }
 
+    scalar JSON
+
+    input JSONRequest {
+        json: JSON
+    }
+
+    type JSONResponse {
+        oldJSON: JSON
+        newJSON: JSON
+    }
+
     """
     This is the input type for addBookByObject mutation
     This has properties for title and author
@@ -70,6 +82,7 @@ const schema = gql`
             book: AddBookParams
         ): Book,
         updateAuthor(request: UpdateAuthorParams): UpdateAuthorResponse
+        updateJSON(request: JSONRequest): JSONResponse
     }
 `
 
