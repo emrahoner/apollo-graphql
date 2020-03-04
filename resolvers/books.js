@@ -60,9 +60,31 @@ const addBookByObject = (_, { book }) => {
     }
 }
 
+const updateAuthor = (_, { request }) => {
+    const title = request.title
+    const author = request.author
+
+    const book = data.books.find(x => x.title === title)
+    book.author = author
+    
+    return {
+        code: '200',
+        success: true,
+        message: '',
+        book: { 
+            title: book.title, 
+            author: {
+                name: book.author,
+                books: data.books.filter(x => x.author === author).map(x => x.title)
+            }
+        }
+    }
+}
+
 module.exports = {
     getBooks,
     getAuthors,
     addBook,
-    addBookByObject
+    addBookByObject,
+    updateAuthor
 }
