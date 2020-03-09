@@ -1,3 +1,4 @@
+// Union types should be resolved to a type
 const FlyingCar = {
     __resolveType (obj, context, info) {
         if(obj.wingWidth) {
