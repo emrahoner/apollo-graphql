@@ -60,6 +60,18 @@ const schema = gql`
         date: DateTimeScalar
     }
 
+    enum Colors {
+        RED,
+        BLUE,
+        GREEN
+    }
+
+    enum MappedColor {
+        RED,
+        BLUE,
+        GREEN
+    }
+
     """
     This is the input type for addBookByObject mutation
     This has properties for title and author
@@ -82,7 +94,11 @@ const schema = gql`
         getBooks: [Book],
         getAuthors: [Author]
         scalarTypes: [ScalarTypes]
-        getNow: GetNowResponse
+        getNow: GetNowResponse,
+        favoriteColor: Colors,
+        avatar(borderColor: Colors): Colors,
+        mappedFavoriteColor: MappedColor,
+        mappedAvatar(color: String): MappedColor,
     }
 
     type Mutation {

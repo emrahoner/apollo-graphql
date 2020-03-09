@@ -2,7 +2,7 @@ const { GraphQLScalarType } = require('graphql')
 const { Kind } = require('graphql/language')
 
 const DateTimeScalar = new GraphQLScalarType({
-    name: 'DateScalar',
+    name: 'DateTimeScalar',
     description: 'Custom scalar type for datetime type',
     serialize (value) {
         return value.toString()
