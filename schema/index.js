@@ -60,6 +60,25 @@ const schema = gql`
         date: DateTimeScalar
     }
 
+    type Car {
+        wheelCount: Int
+        isItDoughnut: Boolean
+    }
+
+    type Plane {
+        wingWidth: Int
+        isChickenWing: Boolean
+    }
+
+    union FlyingCar = Car | Plane
+
+    input FlyingCarInput {
+        wheelCount: Int
+        isItDoughnut: Boolean
+        wingWidth: Int
+        isChickenWing: Boolean
+    }
+
     enum Colors {
         RED,
         BLUE,
@@ -99,6 +118,7 @@ const schema = gql`
         avatar(borderColor: Colors): Colors,
         mappedFavoriteColor: MappedColor,
         mappedAvatar(color: String): MappedColor,
+        getFlyingCar(request: FlyingCarInput): FlyingCar
     }
 
     type Mutation {
