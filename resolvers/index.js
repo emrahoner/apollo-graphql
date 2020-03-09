@@ -6,7 +6,7 @@ const { addHoursToNow, getNow } = require('./dateTime')
 const { favoriteColor, avatar, MappedColor, mappedFavoriteColor, mappedAvatar }  = require('./enum')
 const { FlyingCar, getFlyingCar } = require('./union')
 const { GenericBook, getGenericBook } = require('./interface')
-
+const { convertToUpperCase } = require('./directive')
 
 // Resolvers define how a query fetches data from its source. Here you can connect any data source. Even you can call API.
 const resolvers = {
@@ -25,7 +25,8 @@ const resolvers = {
         mappedFavoriteColor,
         mappedAvatar,
         getFlyingCar,
-        getGenericBook
+        getGenericBook,
+        convertToUpperCase
     },
     Mutation: {
         addBook,

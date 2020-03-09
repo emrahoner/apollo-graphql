@@ -108,6 +108,8 @@ const schema = gql`
         whoIsMurderer: String
     }
 
+    directive @upper on FIELD_DEFINITION
+
     """
     This is the input type for addBookByObject mutation
     This has properties for title and author
@@ -137,6 +139,7 @@ const schema = gql`
         mappedAvatar(color: String): MappedColor,
         getFlyingCar(request: FlyingCarInput): FlyingCar
         getGenericBook(type: String): GenericBook
+        convertToUpperCase(input: String): String @upper
     }
 
     type Mutation {
