@@ -91,6 +91,23 @@ const schema = gql`
         GREEN
     }
 
+    interface GenericBook {
+        title: String
+        author: String
+    }
+
+    type SciFiBook implements GenericBook {
+        title: String
+        author: String
+        mostWeirdCharacter: String
+    }
+
+    type ThrillerBook implements GenericBook {
+        title: String
+        author: String
+        whoIsMurderer: String
+    }
+
     """
     This is the input type for addBookByObject mutation
     This has properties for title and author
@@ -119,6 +136,7 @@ const schema = gql`
         mappedFavoriteColor: MappedColor,
         mappedAvatar(color: String): MappedColor,
         getFlyingCar(request: FlyingCarInput): FlyingCar
+        getGenericBook(type: String): GenericBook
     }
 
     type Mutation {
