@@ -8,7 +8,9 @@ const schemaDirectives = require('./directives')
 // In willSendRequest function, common logics for every request can be implemented (like setting authorization header)
 // In resolveURL function, logic can be implemented to set the url for the client. (like fetching url from configuration)
 
-// There are also datasource packages for SQL and MongoDB 
+// There are also datasource packages for SQL and MongoDB
+
+// If we pass datasources to the ApolloServer constructor, we can access to the datasources from the context in resolvers.
 
 const server = new ApolloServer({ 
     typeDefs, 
