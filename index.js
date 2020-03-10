@@ -9,7 +9,8 @@ const server = new ApolloServer({
     schemaDirectives,
     context: ({ req }) => ({
         token: req.headers.authorization
-    })
+    }),
+    tracing: true
 })
 
 server.listen().then(({ url }) => {
