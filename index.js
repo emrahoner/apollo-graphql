@@ -6,7 +6,10 @@ const schemaDirectives = require('./directives')
 const server = new ApolloServer({ 
     typeDefs, 
     resolvers,
-    schemaDirectives
+    schemaDirectives,
+    context: ({ req }) => ({
+        token: req.headers.authorization
+    })
 })
 
 server.listen().then(({ url }) => {
