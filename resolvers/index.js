@@ -1,4 +1,4 @@
-const { getAuthors, getBooks, addBook, addBookByObject, updateAuthor } = require('./books')
+const { getAuthors, getBooks, addBook, addBookByObject, updateAuthor, author, Author, Book } = require('./books')
 const scalarTypes = require('./scalarTypes')
 const { JSON, updateJSON } = require('./customScalarTypes')
 const { DateTimeScalar } = require('../customScalars')
@@ -15,6 +15,8 @@ const resolvers = {
     MappedColor,
     FlyingCar,
     GenericBook,
+    Author,
+    Book,
     Query: {
         getAuthors,
         getBooks,
@@ -26,7 +28,8 @@ const resolvers = {
         mappedAvatar,
         getFlyingCar,
         getGenericBook,
-        convertToUpperCase
+        convertToUpperCase,
+        author
     },
     Mutation: {
         addBook,

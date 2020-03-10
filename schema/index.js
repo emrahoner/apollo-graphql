@@ -140,6 +140,7 @@ const schema = gql`
         getFlyingCar(request: FlyingCarInput): FlyingCar
         getGenericBook(type: String): GenericBook
         convertToUpperCase(input: String): String @upper
+        author(name: String): Author
     }
 
     type Mutation {

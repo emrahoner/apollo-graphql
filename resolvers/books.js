@@ -81,10 +81,35 @@ const updateAuthor = (_, { request }) => {
     }
 }
 
+const author = (_, { name }) => {
+    return {
+        name
+    }
+}
+
+const Author = {
+    books(author) {
+        return data.books.filter(x => x.author === author.name).map(x => { return {
+            title: x.title
+        }})
+    }
+}
+
+const Book = {
+    author(book) {
+        return{
+            name: data.books.find(x => x.title === book.title).author
+        }
+    }
+}
+
 module.exports = {
     getBooks,
     getAuthors,
     addBook,
     addBookByObject,
-    updateAuthor
+    updateAuthor,
+    author,
+    Author,
+    Book
 }
