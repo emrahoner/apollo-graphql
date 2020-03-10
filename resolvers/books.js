@@ -81,14 +81,22 @@ const updateAuthor = (_, { request }) => {
     }
 }
 
-const author = (_, { name }) => {
+// Resolvers can return promise
+// First argument is parent resolved object. If there is nothing resolved before, it is the query object
+// Second argument is the passed arguments to the query.
+// Third argument is context object passed to all resolvers. It is shared data for the query and resolvers of the request
+//      Context shouldn't be changed in resolvers for consistency.
+//      Context factory function is set during ApolloServer initiation
+// Fourth argument is info object that stores execution state of the query
+const author = (parent, { name }, context) => {
+    
     return {
         name
     }
 }
 
 const Author = {
-    books(author) {
+    books(author, args, context, info) {
         return data.books.filter(x => x.author === author.name).map(x => { return {
             title: x.title
         }})
@@ -96,7 +104,7 @@ const Author = {
 }
 
 const Book = {
-    author(book) {
+    author(book, args, context, info) {
         return{
             name: data.books.find(x => x.title === book.title).author
         }
