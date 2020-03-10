@@ -12,6 +12,10 @@ const schemaDirectives = require('./directives')
 
 // If we pass datasources to the ApolloServer constructor, we can access to the datasources from the context in resolvers.
 
+// Data Loaders are used to batch requests in data loaders
+
+// Redis or Memcache can be used to cache queries for performance
+
 const server = new ApolloServer({ 
     typeDefs, 
     resolvers,
