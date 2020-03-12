@@ -2,6 +2,7 @@ const { ApolloServer } = require('apollo-server')
 const resolvers = require('./resolvers')
 const typeDefs = require('./schema')
 const schemaDirectives = require('./directives')
+const someAPI = {}, dbClient = {}
 
 // For rest data source, RESTDataSource class can be extended from 'apollo-datasource-rest' package.
 // The class has methods for each http methods and rest clients can be created with extending it.
@@ -16,6 +17,12 @@ const schemaDirectives = require('./directives')
 
 // Redis or Memcache can be used to cache queries for performance
 
+// By setting debug to false, stack trace from error response is removed
+// AuthenticationError, ForbiddenError, UserInputError, ApolloError are the errors that we have
+// formatError function can be set in ApolloServer contructor to map errors 
+// rewriteError function is used to log errors in Graph Manager.
+//      We can prevent logging certain errors or we mask error messages etc.
+
 const server = new ApolloServer({ 
     typeDefs, 
     resolvers,
@@ -29,7 +36,18 @@ const server = new ApolloServer({
     context: ({ req }) => ({
         token: req.headers.authorization
     }),
-    tracing: true
+    tracing: true,
+    debug: false,
+    formatError: (error) => {
+        // error.originalError returns the actual error object
+        return error
+    },
+    engine: {
+        rewriteError: (error) => {
+            // return null, not to log the error in Graph Manager
+            return error
+        }
+    }
 })
 
 server.listen().then(({ url }) => {
